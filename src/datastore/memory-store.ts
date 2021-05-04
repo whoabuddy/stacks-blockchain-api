@@ -29,6 +29,7 @@ import {
   DbConfigState,
   DbMinerReward,
   DbTxWithStxTransfers,
+  DbAssetMetadata,
 } from './common';
 import { logger, FoundOrNot } from '../helpers';
 import { AddressTokenOfferingLocked, TransactionType } from '@stacks/stacks-blockchain-api-types';
@@ -609,5 +610,11 @@ export class MemoryDataStore
 
   close() {
     return Promise.resolve();
+  }
+  getftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>> {
+    throw new Error('Method not implemented.');
+  }
+  getNftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>> {
+    throw new Error('Method not implemented.');
   }
 }

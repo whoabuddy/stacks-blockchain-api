@@ -418,6 +418,13 @@ export interface DbTokenOfferingLocked {
   block: number;
 }
 
+export interface DbAssetMetadata {
+  name: string;
+  description: string;
+  image_uri: string;
+  image_canonical_uri: string;
+}
+
 export interface DataStore extends DataStoreEventEmitter {
   getSubdomainResolver(name: { name: string }): Promise<FoundOrNot<string>>;
   getNameCanonical(txId: string, indexBlockHash: string): Promise<FoundOrNot<boolean>>;
@@ -610,6 +617,9 @@ export interface DataStore extends DataStoreEventEmitter {
     blockHeight: number
   ): Promise<FoundOrNot<AddressTokenOfferingLocked>>;
   close(): Promise<void>;
+
+  getftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>>;
+  getNftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>>;
 }
 
 export function getAssetEventId(event_index: number, event_tx_id: string): string {

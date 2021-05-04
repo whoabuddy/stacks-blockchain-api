@@ -38,6 +38,7 @@ import { ChainID } from '@stacks/transactions';
 import * as pathToRegex from 'path-to-regexp';
 import * as expressListEndpoints from 'express-list-endpoints';
 import { createMiddleware as createPrometheusMiddleware } from '@promster/express';
+import { createTokenRouter } from './routes/tokenes/tokens';
 
 export interface ApiServer {
   expressApp: ExpressWithAsync;
@@ -168,6 +169,17 @@ export async function startApiServer(datastore: DataStore, chainId: ChainID): Pr
       router.use('/namespaces', createBnsNamespacesRouter(datastore));
       router.use('/names', createBnsNamesRouter(datastore));
       router.use('/addresses', createBnsAddressesRouter(datastore));
+      return router;
+    })()
+  );
+
+  //Setup routes for token metadata
+  app.use(
+    '/tokens',
+    (() => {
+      const router = addAsync(express.Router());
+      router.use(cors());
+      router.use('/:contractId', createTokenRouter(datastore));
       return router;
     })()
   );
