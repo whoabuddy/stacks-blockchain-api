@@ -1021,6 +1021,44 @@ export interface RosettaNetworkStatusResponse {
   peers: RosettaPeers[];
 }
 
+export interface FTMetadataResponse {
+  /**
+   * Identifies the asset to which this token represents
+   */
+  name: string;
+  /**
+   * Describes the asset to which this token represents
+   */
+  description: string;
+  /**
+   * A URI pointing to a resource with mime type image/* representing the asset to which this token represents. The API may provide a URI to a cached resource, dependending on configuration. Otherwise, this can be the same value as the canonical image URI.
+   */
+  image_uri: string;
+  /**
+   * The original image URI specified by the contract. A URI pointing to a resource with mime type image/* representing the asset to which this token represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive.
+   */
+  image_canonical_uri: string;
+}
+
+export interface NFTMetadataResponse {
+  /**
+   * Identifies the asset to which this token represents
+   */
+  name: string;
+  /**
+   * Describes the asset to which this token represents
+   */
+  description: string;
+  /**
+   * A URI pointing to a resource with mime type image/* representing the asset to which this token represents. The API may provide a URI to a cached resource, dependending on configuration. Otherwise, this can be the same value as the canonical image URI.
+   */
+  image_uri: string;
+  /**
+   * The original image URI specified by the contract. A URI pointing to a resource with mime type image/* representing the asset to which this token represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive.
+   */
+  image_canonical_uri: string;
+}
+
 /**
  * GET request that returns transactions
  */
