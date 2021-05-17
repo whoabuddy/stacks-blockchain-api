@@ -1021,7 +1021,7 @@ export interface RosettaNetworkStatusResponse {
   peers: RosettaPeers[];
 }
 
-export interface FTMetadataResponse {
+export interface FungibleTokenMetadataResponse {
   /**
    * Identifies the asset to which this token represents
    */
@@ -1040,7 +1040,7 @@ export interface FTMetadataResponse {
   image_canonical_uri: string;
 }
 
-export interface NFTMetadataResponse {
+export interface NonFungibleTokenMetadataResponse {
   /**
    * Identifies the asset to which this token represents
    */
