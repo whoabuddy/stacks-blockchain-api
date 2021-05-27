@@ -29,7 +29,8 @@ import {
   DbConfigState,
   DbMinerReward,
   DbTxWithStxTransfers,
-  DbAssetMetadata,
+  DbFungibleTokenMetadata,
+  DbNonFungibleTokenMetadata,
 } from './common';
 import { logger, FoundOrNot } from '../helpers';
 import { AddressTokenOfferingLocked, TransactionType } from '@stacks/stacks-blockchain-api-types';
@@ -611,16 +612,16 @@ export class MemoryDataStore
   close() {
     return Promise.resolve();
   }
-  getFtMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>> {
+  getFtMetadata(contractId: string): Promise<FoundOrNot<DbFungibleTokenMetadata>> {
     throw new Error('Method not implemented.');
   }
-  getNftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>> {
+  getNftMetadata(contractId: string): Promise<FoundOrNot<DbNonFungibleTokenMetadata>> {
     throw new Error('Method not implemented.');
   }
-  updateNFtMetadata(nftMetadata: DbAssetMetadata): Promise<number> {
+  updateNFtMetadata(nftMetadata: DbNonFungibleTokenMetadata): Promise<number> {
     throw new Error('Method not implemented.');
   }
-  updateFtMetadata(ftMetadata: DbAssetMetadata): Promise<number> {
+  updateFtMetadata(ftMetadata: DbFungibleTokenMetadata): Promise<number> {
     throw new Error('Method not implemented.');
   }
 }
